@@ -123,17 +123,28 @@ function WalletPage() {
 ### Testing
 
 1. **Install World App**: Download and install World App on your device
-2. **Open in Browser**: Run `npm run dev` and open the application
-3. **Test Authentication**: Try connecting wallet and verifying World ID
-4. **Check Wallet Status**: Verify wallet information displays correctly
-5. **Build Test**: Run `npm run build` to ensure production build works
+2. **Run Development Server**: Run `npm run dev` and note the local URL (e.g., http://localhost:3000)
+3. **Debug MiniKit Detection**: Visit `/debug` page to check MiniKit detection status
+4. **Test in World App**: 
+   - Open World App on your mobile device
+   - Navigate to Mini Apps section
+   - Add your app URL (you may need to expose it publicly with ngrok)
+   - Open the app from within World App
+5. **Test Authentication**: Try connecting wallet and verifying World ID
+6. **Check Wallet Status**: Verify wallet information displays correctly
+7. **Build Test**: Run `npm run build` to ensure production build works
+
+### Important Note
+**MiniKit only works when the app is opened inside World App, not in a regular browser!** This is why the connect button appears disabled when testing in a browser.
 
 ### Debugging
 
-- Check browser console for MiniKit-related errors
-- Verify environment variables are loaded correctly
-- Ensure World App is installed and updated
-- Check network connectivity for RPC calls
+- **Use Debug Page**: Visit `/debug` to see MiniKit detection status
+- **Check Console**: Open browser dev tools and check console for MiniKit-related errors
+- **Verify Environment**: Ensure environment variables are loaded correctly
+- **World App Required**: MiniKit only works inside World App, not in regular browsers
+- **Network Issues**: Check network connectivity for RPC calls
+- **App Configuration**: Verify your app is properly configured in World Developer Portal
 
 ## Production Deployment
 

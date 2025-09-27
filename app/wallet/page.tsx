@@ -26,7 +26,7 @@ export default function WalletOverviewPage() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <section aria-labelledby="wallet-status">
         <h2 id="wallet-status" className="sr-only">
           Wallet Connection Status
@@ -38,25 +38,33 @@ export default function WalletOverviewPage() {
         <h2 id="balances" className="sr-only">
           Balances
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <BalanceCard title="Total balance" amount="$1,842.10" subtitle="All assets, est. USD" />
-          <BalanceCard title="ETH" amount="0.542 ETH" subtitle="~ $1,080.40" />
-          <BalanceCard title="USDC" amount="762.00 USDC" subtitle="~ $762.00" />
-          <BalanceCard title="Fees (mo.)" amount="$2.14" subtitle="Estimated network fees" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hover-lift">
+            <BalanceCard title="Total balance" amount="$1,842.10" subtitle="All assets, est. USD" />
+          </div>
+          <div className="hover-lift">
+            <BalanceCard title="ETH" amount="0.542 ETH" subtitle="~ $1,080.40" />
+          </div>
+          <div className="hover-lift">
+            <BalanceCard title="USDC" amount="762.00 USDC" subtitle="~ $762.00" />
+          </div>
+          <div className="hover-lift">
+            <BalanceCard title="Fees (mo.)" amount="$2.14" subtitle="Estimated network fees" />
+          </div>
         </div>
       </section>
 
-      <section aria-labelledby="actions" className="flex items-center gap-3">
+      <section aria-labelledby="actions" className="flex items-center gap-4">
         <h2 id="actions" className="sr-only">
           Quick actions
         </h2>
-        <Button asChild>
+        <Button asChild size="lg" className="hover-lift shadow-md">
           <Link href="/wallet/send">Send</Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild size="lg" className="hover-lift">
           <Link href="/wallet/receive">Receive</Link>
         </Button>
-        <Button variant="ghost" asChild>
+        <Button variant="ghost" asChild size="lg" className="hover-lift">
           <Link href="/wallet/transactions">View all</Link>
         </Button>
       </section>
@@ -65,7 +73,9 @@ export default function WalletOverviewPage() {
         <h2 id="recent" className="sr-only">
           Recent transactions
         </h2>
-        <TransactionList items={txs} />
+        <div className="hover-lift">
+          <TransactionList items={txs} />
+        </div>
       </section>
     </div>
   )

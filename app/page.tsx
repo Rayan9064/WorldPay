@@ -9,17 +9,22 @@ import { WorldAuth } from "@/components/world-auth"
 export default function Page() {
   return (
     <main className="min-h-dvh bg-background text-foreground">
-      <header className="border-b border-border">
+      <header className="sticky top-0 z-50 glass border-b border-border/50">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">
-            <span aria-label="Brand">WorldPay</span>
+          <Link href="/" className="font-bold text-xl tracking-tight hover-lift">
+            <span aria-label="Brand" className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              WorldPay
+            </span>
           </Link>
           <nav aria-label="Primary">
-            <div className="flex items-center gap-2">
-              <Button asChild variant="ghost" className="font-normal">
+            <div className="flex items-center gap-3">
+              <Button asChild variant="ghost" className="font-normal hover-lift">
                 <Link href="#features">Features</Link>
               </Button>
-              <Button asChild>
+              <Button asChild variant="ghost" className="font-normal hover-lift">
+                <Link href="/debug">Debug</Link>
+              </Button>
+              <Button asChild className="hover-lift shadow-md">
                 <Link href="/wallet">Get Started</Link>
               </Button>
             </div>
@@ -35,27 +40,29 @@ export default function Page() {
         <FeatureList />
       </section>
 
-      <section id="get-started" className="mx-auto max-w-6xl px-4 py-8">
+      <section id="get-started" className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <Card>
+          <Card className="hover-lift gradient-border">
             <CardHeader>
-              <CardTitle className="text-pretty">Ready to try it?</CardTitle>
-              <CardDescription className="text-pretty">
-                Connect your World ID and wallet to start using WorldPay for secure, decentralized payments.
+              <CardTitle className="text-pretty text-2xl">Ready to try it?</CardTitle>
+              <CardDescription className="text-pretty text-base">
+                Connect your World ID and wallet to start using WorldPay for secure, decentralized payments on World Chain.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex items-center gap-3">
-              <Button asChild>
+            <CardContent className="flex items-center gap-4">
+              <Button asChild size="lg" className="hover-lift shadow-lg">
                 <Link href="/wallet">Get Started</Link>
               </Button>
-              <Button variant="outline" asChild>
+              <Button variant="outline" asChild size="lg" className="hover-lift">
                 <Link href="#features">Learn More</Link>
               </Button>
             </CardContent>
           </Card>
           
           <div className="flex justify-center">
-            <WorldAuth />
+            <div className="w-full max-w-md">
+              <WorldAuth />
+            </div>
           </div>
         </div>
       </section>

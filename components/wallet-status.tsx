@@ -77,15 +77,17 @@ export const WalletStatus = () => {
 
   if (typeof window === 'undefined' || !(window as any).MiniKit) {
     return (
-      <Card className="w-full">
+      <Card className="w-full hover-lift gradient-border">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wallet className="h-5 w-5" />
+          <CardTitle className="flex items-center gap-3">
+            <div className="p-2 rounded-full bg-muted/50">
+              <Wallet className="h-5 w-5" />
+            </div>
             Wallet Status
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             World App is not detected. Please install World App to connect your wallet.
           </p>
         </CardContent>
@@ -95,17 +97,19 @@ export const WalletStatus = () => {
 
   if (isLoading) {
     return (
-      <Card className="w-full">
+      <Card className="w-full hover-lift gradient-border">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wallet className="h-5 w-5" />
+          <CardTitle className="flex items-center gap-3">
+            <div className="p-2 rounded-full bg-muted/50">
+              <Wallet className="h-5 w-5" />
+            </div>
             Wallet Status
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-2">
-            <RefreshCw className="h-4 w-4 animate-spin" />
-            <span className="text-sm">Checking wallet connection...</span>
+          <div className="flex items-center gap-3">
+            <RefreshCw className="h-5 w-5 animate-spin text-primary" />
+            <span className="text-sm text-muted-foreground">Checking wallet connection...</span>
           </div>
         </CardContent>
       </Card>
@@ -114,15 +118,17 @@ export const WalletStatus = () => {
 
   if (!isConnected || !walletInfo) {
     return (
-      <Card className="w-full">
+      <Card className="w-full hover-lift gradient-border">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wallet className="h-5 w-5" />
+          <CardTitle className="flex items-center gap-3">
+            <div className="p-2 rounded-full bg-muted/50">
+              <Wallet className="h-5 w-5" />
+            </div>
             Wallet Status
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             No wallet connected. Connect your wallet to view status.
           </p>
         </CardContent>
@@ -131,56 +137,58 @@ export const WalletStatus = () => {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full hover-lift gradient-border">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Wallet className="h-5 w-5" />
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-full bg-green-500/10">
+              <Wallet className="h-5 w-5 text-green-500" />
+            </div>
             Wallet Status
           </div>
-          <Badge variant="secondary" className="bg-green-100 text-green-800">
+          <Badge variant="secondary" className="bg-green-500/10 text-green-600 border-green-500/20">
             Connected
           </Badge>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="space-y-3">
-          <div>
-            <p className="text-sm font-medium text-gray-700">Address</p>
-            <div className="flex items-center gap-2 mt-1">
-              <p className="text-sm font-mono bg-gray-100 px-2 py-1 rounded">
+      <CardContent className="space-y-6">
+        <div className="space-y-4">
+          <div className="p-4 bg-muted/30 rounded-lg">
+            <p className="text-sm font-medium text-foreground mb-2">Address</p>
+            <div className="flex items-center gap-2">
+              <p className="text-sm font-mono bg-background px-3 py-2 rounded border">
                 {walletInfo.address.slice(0, 16)}...{walletInfo.address.slice(-16)}
               </p>
               <Button
                 size="sm"
                 variant="ghost"
                 onClick={handleCopyAddress}
-                className="h-6 w-6 p-0"
+                className="h-8 w-8 p-0 hover-lift"
               >
-                <Copy className="h-3 w-3" />
+                <Copy className="h-4 w-4" />
               </Button>
             </div>
           </div>
 
-          <div>
-            <p className="text-sm font-medium text-gray-700">Balance</p>
-            <p className="text-sm font-mono bg-gray-100 px-2 py-1 rounded inline-block">
+          <div className="p-4 bg-muted/30 rounded-lg">
+            <p className="text-sm font-medium text-foreground mb-2">Balance</p>
+            <p className="text-lg font-mono bg-background px-3 py-2 rounded border">
               {walletInfo.balance} USDC
             </p>
           </div>
 
-          <div>
-            <p className="text-sm font-medium text-gray-700">Network</p>
-            <Badge variant="outline">{walletInfo.network}</Badge>
+          <div className="p-4 bg-muted/30 rounded-lg">
+            <p className="text-sm font-medium text-foreground mb-2">Network</p>
+            <Badge variant="outline" className="px-3 py-1">{walletInfo.network}</Badge>
           </div>
         </div>
 
-        <div className="flex gap-2 pt-2">
+        <div className="flex gap-3 pt-2">
           <Button
             size="sm"
             variant="outline"
             onClick={checkWalletConnection}
-            className="flex-1"
+            className="flex-1 hover-lift"
           >
             <RefreshCw className="h-4 w-4 mr-2" />
             Refresh
@@ -189,7 +197,7 @@ export const WalletStatus = () => {
             size="sm"
             variant="outline"
             onClick={handleDisconnect}
-            className="flex-1"
+            className="flex-1 hover-lift"
           >
             Disconnect
           </Button>
