@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { BalanceCard } from "@/components/balance-card"
 import { TransactionList, type TxItem } from "@/components/transaction-list"
+import { WalletStatus } from "@/components/wallet-status"
 
 export default function WalletOverviewPage() {
   const txs: TxItem[] = [
@@ -26,6 +27,13 @@ export default function WalletOverviewPage() {
 
   return (
     <div className="space-y-6">
+      <section aria-labelledby="wallet-status">
+        <h2 id="wallet-status" className="sr-only">
+          Wallet Connection Status
+        </h2>
+        <WalletStatus />
+      </section>
+
       <section aria-labelledby="balances">
         <h2 id="balances" className="sr-only">
           Balances

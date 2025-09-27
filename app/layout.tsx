@@ -5,8 +5,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'WorldPay - World Chain Mini App',
+  description: 'A decentralized payment platform built on World Chain',
   generator: 'v0.app',
 }
 

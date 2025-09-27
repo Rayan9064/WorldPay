@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Link from "next/link"
 import Hero from "@/components/hero"
 import FeatureList from "@/components/feature-list"
+import { WorldAuth } from "@/components/world-auth"
 
 export default function Page() {
   return (
@@ -35,22 +36,28 @@ export default function Page() {
       </section>
 
       <section id="get-started" className="mx-auto max-w-6xl px-4 py-8">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-pretty">Ready to try it?</CardTitle>
-            <CardDescription className="text-pretty">
-              A simple, clean starting point. Hook up auth and APIs later—today, just ship the UI.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex items-center gap-3">
-            <Button asChild>
-              <Link href="/wallet">Get Started</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="#features">Learn More</Link>
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-pretty">Ready to try it?</CardTitle>
+              <CardDescription className="text-pretty">
+                Connect your World ID and wallet to start using WorldPay for secure, decentralized payments.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex items-center gap-3">
+              <Button asChild>
+                <Link href="/wallet">Get Started</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="#features">Learn More</Link>
+              </Button>
+            </CardContent>
+          </Card>
+          
+          <div className="flex justify-center">
+            <WorldAuth />
+          </div>
+        </div>
       </section>
 
       <footer className="border-t border-border mt-12">
